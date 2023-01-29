@@ -5,6 +5,8 @@ fun main() {
     Zad2()
     Zad3()
     Zad4()
+    Zad5()
+    Zad6()
 }
 fun Zad1(){
     try {
@@ -20,7 +22,7 @@ fun Zad1(){
             println(ch1.pow( 3))
         else
             println("если к минимальному числу добавить 1, то они не станут равными")
-      }
+    }
     catch(e:Exception){
         println("ошибка")
     }
@@ -52,16 +54,16 @@ fun Zad3(){
         println("введите возраст")
         val x = readln().toInt()
 
-            when (x) {
-                in 0..2 -> println("младенец")
-                in 3..13 -> println("ребенок")
-                in 14..17 -> println("подросток")
-                in 18..55 -> println("взрослый")
-                in 56..90 -> println("пожилой")
-                in 91..123 ->  println("долгожитель")
-                else ->
-                    println("вы ввели слишком большой возраст")
-            }
+        when (x) {
+            in 0..2 -> println("младенец")
+            in 3..13 -> println("ребенок")
+            in 14..17 -> println("подросток")
+            in 18..55 -> println("взрослый")
+            in 56..90 -> println("пожилой")
+            in 91..123 ->  println("долгожитель")
+            else ->
+                println("вы ввели слишком большой возраст")
+        }
     } catch (e: Exception) {
         println("ошибка")
     }
@@ -80,7 +82,50 @@ fun Zad4(){ // вариант 1
         println("ошибка")
     }
 }
+fun Zad5(){ // вариант 1
+    try {
+        println("Введите двузначное число")
+        var x = readln().toInt()
+        if(x<10||x>=100)
+            println("ошибка")
+        else {
+            var c: Boolean=false
+            var z=x/10
+            var v=x%10
+            if(z==8||v==8)
+                c=true
+            if(c==false)
+                println("в числе "+x+"нет 8")
+            else
+                println("в числе "+x+" есть 8")
+        }
+    }
+    catch(e: Exception){
+        println("ошибка")
+    }
+}
+fun Zad6(){ // вариант 1
+    try {
+        println("Введите возраст 1 друга")
+        var voz1 = readln().toInt()
+        println("Введите возраст 2 друга")
+        var voz2 = readln().toInt()
+        when (voz1) {
+            in 7..16 -> println("возраст 1 друга является школьным = "+voz1)
+            else ->
+                println("возраст 1 друга НЕ является школьным ")
+        }
+        when (voz2) {
+            in 7..16 -> println("возраст 2 друга является школьным = "+voz2)
+            else ->
+                println("возраст 2 друга НЕ является школьным ")
+        }
 
+    }
+    catch(e: Exception){
+        println("ошибка")
+    }
+}
 
 
 
