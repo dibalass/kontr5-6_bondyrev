@@ -7,13 +7,14 @@ fun main() {
     Zad4()
     Zad5()
     Zad6()
+    Zad7()
 }
 fun Zad1(){
     try {
         println("введите 1 число")
-        var ch1 = readln().toDouble()
+        var ch1 = readLine()!!.toDouble()
         println("введите 2 число")
-        var ch2 = readln().toDouble()
+        var ch2 = readLine()!!.toDouble()
         if (ch1 > ch2)
             ch2++
         else
@@ -30,7 +31,7 @@ fun Zad1(){
 fun Zad2() {
     try {
         println("введите цифру от 0 до 9")
-        val x = readln().toInt()
+        val x = readLine()!!.toInt()
         when (x) {
             0 -> println("ноль")
             1 -> println("один")
@@ -52,7 +53,7 @@ fun Zad2() {
 fun Zad3(){
     try {
         println("введите возраст")
-        val x = readln().toInt()
+        val x = readLine()!!.toInt()
 
         when (x) {
             in 0..2 -> println("младенец")
@@ -62,7 +63,7 @@ fun Zad3(){
             in 56..90 -> println("пожилой")
             in 91..123 ->  println("долгожитель")
             else ->
-                println("вы ввели слишком большой возраст")
+                println("вы ввели слишком большой или маленький возраст")
         }
     } catch (e: Exception) {
         println("ошибка")
@@ -71,7 +72,7 @@ fun Zad3(){
 fun Zad4(){ // вариант 1
     try {
         println("Введите x")
-        var x = readln().toDouble()
+        var x = readLine()!!.toDouble()
         if(x<=3)
             x = (x.pow(2))-3*x+9
         else
@@ -85,7 +86,7 @@ fun Zad4(){ // вариант 1
 fun Zad5(){ // вариант 1
     try {
         println("Введите двузначное число")
-        var x = readln().toInt()
+        var x = readLine()!!.toInt()
         if(x<10||x>=100)
             println("ошибка")
         else {
@@ -95,7 +96,7 @@ fun Zad5(){ // вариант 1
             if(z==8||v==8)
                 c=true
             if(c==false)
-                println("в числе "+x+"нет 8")
+                println("в числе "+x+" нет 8")
             else
                 println("в числе "+x+" есть 8")
         }
@@ -107,18 +108,22 @@ fun Zad5(){ // вариант 1
 fun Zad6(){ // вариант 1
     try {
         println("Введите возраст 1 друга")
-        var voz1 = readln().toInt()
+        var voz1 = readLine()!!.toInt()
         println("Введите возраст 2 друга")
-        var voz2 = readln().toInt()
-        when (voz1) {
-            in 7..16 -> println("возраст 1 друга является школьным = "+voz1)
-            else ->
-                println("возраст 1 друга НЕ является школьным ")
-        }
-        when (voz2) {
-            in 7..16 -> println("возраст 2 друга является школьным = "+voz2)
-            else ->
-                println("возраст 2 друга НЕ является школьным ")
+        var voz2 = readLine()!!.toInt()
+        if (voz1<0||voz2<0)
+            println("возраст не может быть отрицательным")
+        else {
+            when (voz1) {
+                in 7..16 -> println("возраст 1 друга является школьным = " + voz1)
+                else ->
+                    println("возраст 1 друга НЕ является школьным ")
+            }
+            when (voz2) {
+                in 7..16 -> println("возраст 2 друга является школьным = " + voz2)
+                else ->
+                    println("возраст 2 друга НЕ является школьным ")
+            }
         }
 
     }
@@ -126,7 +131,25 @@ fun Zad6(){ // вариант 1
         println("ошибка")
     }
 }
+fun Zad7(){ // вариант 14
+    try {
+        var rand=(0..10).random()
+        println("введи число от 0 до 9")
+        var vod = readLine()!!.toInt()
+        if (vod>10||vod<0)
+            println("ошибка")
+        else if(vod==rand)
+                println("угадали")
+            else if(vod<rand)
+                println("недобор")
+            else
+                println("перебор")
 
+    }
+    catch(e: Exception){
+        println("ошибка")
+    }
+}
 
 
 
